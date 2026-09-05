@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trinay | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.15.1/devicon.min.css">
+<style>
+:root{
+  --bg:#0B1120;--bg-alt:#131B2E;--card:#161F35;--ink:#E5E7EB;--muted:#8B93A7;
+  --accent:#5EEAD4;--accent2:#818CF8;--line:#232D45;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Sora',sans-serif}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,17,32,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:16px 24px}
+.brand{font-family:'Sora',sans-serif;font-weight:700;font-size:1.05rem;color:var(--accent)}
+.navlinks{display:flex;gap:24px;flex-wrap:wrap}
+.navlinks a{font-size:.85rem;color:var(--muted);text-decoration:none}
+.navlinks a:hover{color:var(--accent)}
+section{padding:90px 0}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding-top:70px}
+.eyebrow{font-size:.8rem;color:var(--accent);letter-spacing:.08em;font-weight:600;margin-bottom:14px}
+.hero h1{font-size:clamp(2.2rem,5vw,3rem);font-weight:800;line-height:1.15;margin-bottom:16px}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:480px;margin-bottom:28px}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none}
+.btn-primary{background:var(--accent);color:#04231C}
+.btn-primary:hover{background:#7ff2e0}
+.btn-outline{border:1px solid var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.avatar{width:100%;aspect-ratio:1;border-radius:20px;background:linear-gradient(145deg,var(--accent2),var(--accent));
+  display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:3.5rem;font-weight:800;color:#0B1120}
+.section-head{margin-bottom:44px}
+.section-head .eyebrow{margin-bottom:8px}
+.section-head h2{font-size:1.9rem;font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.about-grid{display:grid;gap:16px}
+.about-grid p{color:var(--muted)}
+.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.skill-box{padding:36px 32px}
+.skill-box:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 30px -14px rgba(94,234,212,.25)}
+.skills-sub{font-size:.85rem;color:var(--accent);font-weight:600;letter-spacing:.05em;margin-bottom:22px}
+.skill-icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-icon-card{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:18px 10px;
+  display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;transition:transform .2s ease,border-color .2s ease}
+.skill-icon-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.skill-icon-card i{font-size:1.9rem;color:var(--accent)}
+.skill-icon-card span{font-size:.78rem;color:var(--ink)}
+.soft-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.soft-item{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;
+  align-items:center;gap:10px;text-align:center;padding:20px 12px;font-size:.85rem;color:var(--ink);
+  transition:transform .2s ease,border-color .2s ease,color .2s ease}
+.soft-item:hover{transform:translateY(-4px);border-color:var(--accent2);color:var(--accent2)}
+.soft-item .soft-ico{font-size:1.6rem}
+.timeline{border-left:2px solid var(--line);padding-left:28px;display:flex;flex-direction:column;gap:36px}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-34px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.tl-role{font-weight:700;font-size:1.05rem}
+.tl-org{color:var(--accent2);font-size:.85rem;margin-top:2px}
+.tl-date{color:var(--muted);font-size:.78rem;margin-top:2px}
+.tl-desc{color:var(--muted);font-size:.9rem;margin-top:10px}
+.tl-desc+.tl-desc{margin-top:14px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.cert-card{padding:20px}
+.cert-card:hover{transform:translateY(-4px);border-color:var(--accent2);box-shadow:0 12px 30px -14px rgba(129,140,248,.3)}
+.cert-thumb{width:100%;height:110px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,var(--bg-alt),var(--line));
+  display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;margin-bottom:14px;transition:filter .25s ease}
+.cert-thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.cert-card:hover .cert-thumb{filter:brightness(1.15)}
+.cert-name a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.cert-name a:hover{color:var(--accent);border-color:var(--accent)}
+.cert-name{font-weight:600;font-size:.95rem;margin-bottom:4px}
+.cert-issuer{color:var(--accent2);font-size:.8rem}
+.cert-date{color:var(--muted);font-size:.75rem;margin-top:8px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.proj-card{overflow:hidden}
+.proj-thumb{width:100%;height:220px;overflow:hidden}
+.proj-thumb img{width:100%;height:100%;object-fit:cover}
+.proj-thumb.placeholder{background:linear-gradient(135deg,var(--accent2),var(--bg-alt));
+  display:flex;align-items:center;justify-content:center;color:#0B1120;font-family:'Sora',sans-serif;font-weight:700}
+.proj-body{padding:24px}
+.proj-title{font-weight:700;font-size:1.1rem;margin-bottom:10px}
+.proj-desc{color:var(--muted);font-size:.92rem;margin-bottom:16px;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.7rem;color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:2px 8px;transition:background .2s ease,color .2s ease}
+.tag:hover{background:var(--accent);color:#04231C}
+.proj-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 16px 34px -16px rgba(94,234,212,.3)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+label{font-size:.78rem;color:var(--muted);margin-bottom:6px;display:block}
+input,textarea{width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg-alt);
+  color:var(--ink);font-family:'Inter',sans-serif;font-size:.9rem}
+input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:110px;resize:vertical}
+.contact-form button{align-self:flex-start;padding:12px 26px;border-radius:8px;border:none;background:var(--accent);
+  color:#04231C;font-weight:700;font-size:.9rem;cursor:pointer}
+.contact-form button:hover{background:#7ff2e0}
+.form-note{font-size:.78rem;color:var(--muted);display:none}
+.social-col{display:flex;flex-direction:column;justify-content:center;gap:16px}
+.social-col a{font-size:.95rem;font-weight:600;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.social-col a:hover{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.8rem}
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .avatar{max-width:220px;margin:0 auto}
+  .skills-cols,.grid-2,.contact-layout{grid-template-columns:1fr}
+  .skill-icon-grid,.soft-list{grid-template-columns:1fr 1fr}
+  .navlinks{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">TRINAY</div>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#certs">Certificates</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="hero" id="home">
+    <div>
+      <div class="eyebrow">PORTFOLIO</div>
+      <h1>Hi, I'm Trinay Sai Shyam</h1>
+      <p>Computer Science &amp; Engineering student building projects that blend embedded systems with software — from sensor-driven hardware to data-driven models.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#projects">Explore My Work</a>
+        <a class="btn btn-outline" href="resume.pdf" target="_blank">View CV</a>
+      </div>
+    </div>
+    <div class="avatar">T</div>
+  </section>
+
+  <section id="about">
+    <div class="section-head"><div class="eyebrow">01</div><h2>About Me</h2></div>
+    <div class="card" style="padding:32px">
+      <div class="about-grid">
+        <p>I'm Trinay, a Computer Science and Engineering student at Lovely Professional University (CGPA 7.51), originally from Guntur, Andhra Pradesh. I enjoy working across the stack — from low-level embedded systems to data-driven software.</p>
+        <p>My technical foundation is in C++, Python, and C, with hands-on work in SQL Server, and I regularly sharpen my problem-solving on LeetCode and GeeksforGeeks. I've built projects like a real-time ultrasonic distance measurement system on Arduino/ESP32, and trained in data science — exploratory data analysis and machine learning models using NumPy, Pandas, and Scikit-learn.</p>
+        <p>I'm a team player who adapts quickly to new tools and problems, and I'm always looking to take on projects that push me to learn something new.</p>
+      </div>
+      <div class="btn-row" style="margin-top:24px">
+        <a class="btn btn-outline" href="#contact">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><div class="eyebrow">02</div><h2>My Skills</h2></div>
+    <div class="skills-cols">
+      <div class="card skill-box">
+        <div class="skills-sub">TECHNICAL SKILLS</div>
+        <div class="skill-icon-grid">
+          <div class="skill-icon-card"><i class="devicon-cplusplus-plain"></i><span>C++</span></div>
+          <div class="skill-icon-card"><i class="devicon-c-plain"></i><span>C</span></div>
+          <div class="skill-icon-card"><i class="devicon-python-plain"></i><span>Python</span></div>
+          <div class="skill-icon-card"><i class="devicon-microsoftsqlserver-plain"></i><span>SQL Server</span></div>
+        </div>
+      </div>
+      <div class="card skill-box">
+        <div class="skills-sub">SOFT SKILLS</div>
+        <div class="soft-list">
+          <div class="soft-item"><span class="soft-ico">🤝</span>Team Player</div>
+          <div class="soft-item"><span class="soft-ico">🔄</span>Adaptability</div>
+          <div class="soft-item"><span class="soft-ico">⏱️</span>Time Management</div>
+          <div class="soft-item"><span class="soft-ico">👥</span>Teamwork</div>
+          <div class="soft-item"><span class="soft-ico">🧩</span>Problem Solving</div>
+          <div class="soft-item"><span class="soft-ico">🧠</span>Critical Thinking</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head"><div class="eyebrow">03</div><h2>Experience</h2></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-role">Project Developer &amp; System Designer</div>
+        <div class="tl-org">Independent &amp; Academic Projects</div>
+        <div class="tl-date">February 2026 — April 2026</div>
+        <div class="tl-desc"><strong>Ultrasonic Distance Measurement System:</strong> Engineered an embedded range-finder using an Arduino Uno and HC-SR04 sensor, programming low-level microsecond pulse-timing in C++ to achieve real-time, high-precision obstacle detection across a 2–400 cm range.</div>
+        <div class="tl-desc"><strong>Passport Application Management System:</strong> Architected a multi-user management platform by authoring end-to-end Software Requirements Specifications (SRS), mapping Level-0/1 Data Flow Diagrams, and designing a 3NF-normalized relational database to streamline applicant verification workflows.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="section-head"><div class="eyebrow">04</div><h2>Certificates</h2></div>
+    <div class="grid-3">
+      <div class="card cert-card">
+        <div class="cert-thumb"><img src="certs/cybersecurity-1.png" alt="Introduction to Cyber Security certificate"></div>
+        <div class="cert-name"><a href="cert-cybersecurity.pdf" target="_blank">Cyber Security Certification</a></div>
+        <div class="cert-issuer">Infosys Springboard</div>
+        <div class="cert-date">Issued: March 31, 2026</div>
+      </div>
+      <div class="card cert-card">
+        <div class="cert-thumb"><img src="certs/cpp-1.png" alt="Programming Using C++ certificate"></div>
+        <div class="cert-name"><a href="cert-cpp.pdf" target="_blank">C++ Certification</a></div>
+        <div class="cert-issuer">Infosys Springboard</div>
+        <div class="cert-date">Issued: February 7, 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head"><div class="eyebrow">05</div><h2>My Projects</h2></div>
+    <div class="grid-2">
+      <div class="card proj-card">
+        <div class="proj-thumb"><img src="projects/usdm.jpg" alt="Ultrasonic Distance Measurement System"></div>
+        <div class="proj-body">
+          <div class="proj-title">Ultrasonic Distance Measurement System</div>
+          <div class="proj-desc">Interfaced an HC-SR04 ultrasonic sensor with an Arduino/ESP32 to measure obstacle distances from 5–250 cm with ±3mm accuracy using time-of-flight principles. Added moving-average filtering for stable readings, an I2C LCD for live telemetry, and an adaptive buzzer/LED warning system that scales with proximity.</div>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Arduino</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head"><div class="eyebrow">06</div><h2>Contact Me</h2></div>
+    <div class="contact-layout">
+      <form class="contact-form" id="contactForm">
+        <div>
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required>
+        </div>
+        <div>
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required>
+        </div>
+        <div>
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+        <div class="form-note" id="cf-note">Opening your email client to send this...</div>
+      </form>
+      <div class="social-col">
+        <a href="https://www.linkedin.com/in/trinay-sai-shyam-2a9208398/" target="_blank">LinkedIn — trinay-sai-shyam</a>
+        <a href="https://github.com/Trinay2606" target="_blank">GitHub — Trinay2606</a>
+        <a href="mailto:trinaysaishyam@gmail.com">trinaysaishyam@gmail.com</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>© 2026 Trinay Sai Shyam. All Rights Reserved.</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('cf-name').value;
+  var email = document.getElementById('cf-email').value;
+  var msg = document.getElementById('cf-msg').value;
+  var body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
+  window.location.href = 'mailto:trinaysaishyam@gmail.com?subject=Portfolio%20Contact&body=' + body;
+  document.getElementById('cf-note').style.display = 'block';
+});
+</script>
+</body>
+</html>
